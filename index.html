@@ -26,23 +26,26 @@
     }
     function result() {}
     function add() {
-      if (document.getElementById("result").value == "") {
-        if (document.getElementById("holder").value != "") {
-          var s = document.getElementById("holder").value.replace(/.$/, "+");
-          setHolder(s);
+      if (document.getElementById("holder").value != "") {
+        if (document.getElementById("holder").value.slice(-1) == "=") {
+          clearHolder();
         }
+        var s = document.getElementById("holder").value.replace(/.$/, "+");
+        setHolder(s);
       }
+
       if (document.getElementById("holder").value == "") {
         setHolder(document.getElementById("result").value + " +");
         clearResult();
       }
     }
     function sub() {
-      if (document.getElementById("result").value == "") {
-        if (document.getElementById("holder").value != "") {
-          var s = document.getElementById("holder").value.replace(/.$/, "-");
-          setHolder(s);
+      if (document.getElementById("holder").value != "") {
+        if (document.getElementById("holder").value.slice(-1) == "=") {
+          clearHolder();
         }
+        var s = document.getElementById("holder").value.replace(/.$/, "-");
+        setHolder(s);
       }
       if (document.getElementById("holder").value == "") {
         setHolder(document.getElementById("result").value + " -");
@@ -50,11 +53,12 @@
       }
     }
     function multiply() {
-      if (document.getElementById("result").value == "") {
-        if (document.getElementById("holder").value != "") {
-          var s = document.getElementById("holder").value.replace(/.$/, "×");
-          setHolder(s);
+      if (document.getElementById("holder").value != "") {
+        if (document.getElementById("holder").value.slice(-1) == "=") {
+          clearHolder();
         }
+        var s = document.getElementById("holder").value.replace(/.$/, "×");
+        setHolder(s);
       }
       if (document.getElementById("holder").value == "") {
         setHolder(document.getElementById("result").value + " ×");
@@ -62,11 +66,12 @@
       }
     }
     function divide() {
-      if (document.getElementById("result").value == "") {
-        if (document.getElementById("holder").value != "") {
-          var s = document.getElementById("holder").value.replace(/.$/, "÷");
-          setHolder(s);
+      if (document.getElementById("holder").value != "") {
+        if (document.getElementById("holder").value.slice(-1) == "=") {
+          clearHolder();
         }
+        var s = document.getElementById("holder").value.replace(/.$/, "÷");
+        setHolder(s);
       }
       if (document.getElementById("holder").value == "") {
         setHolder(document.getElementById("result").value + " ÷");
@@ -75,7 +80,6 @@
     }
     function equal() {
       var opr = document.getElementById("holder").value.slice(-1);
-
       switch (opr) {
         case "+":
           var a = document.getElementById("holder").value.slice(0, -2);
