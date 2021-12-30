@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+  </head>
+  <script>
+    function setResult(val) {
+      document.getElementById("result").value += val;
+    }
+    function setHolder(val) {
+      document.getElementById("holder").value = val;
+    }
+    function clearAll() {
+      clearResult();
+      clearHolder();
+    }
+    function clearResult() {
+      document.getElementById("result").value = "";
+    }
+    function clearHolder() {
+      document.getElementById("holder").value = "";
+    }
+    function result() {}
+    function add() {
+      if (document.getElementById("result").value == "") {
+        if (document.getElementById("holder").value != "") {
+          var s = document.getElementById("holder").value.replace(/.$/, "+");
+          setHolder(s);
+        }
+      }
+      if (document.getElementById("holder").value == "") {
+        setHolder(document.getElementById("result").value + " +");
+        clearResult();
+      }
+    }
+    function sub() {
+      if (document.getElementById("result").value == "") {
+        if (document.getElementById("holder").value != "") {
+          var s = document.getElementById("holder").value.replace(/.$/, "-");
+          setHolder(s);
+        }
+      }
+      if (document.getElementById("holder").value == "") {
+        setHolder(document.getElementById("result").value + " -");
+        clearResult();
+      }
+    }
+    function multiply() {
+      if (document.getElementById("result").value == "") {
+        if (document.getElementById("holder").value != "") {
+          var s = document.getElementById("holder").value.replace(/.$/, "×");
+          setHolder(s);
+        }
+      }
+      if (document.getElementById("holder").value == "") {
+        setHolder(document.getElementById("result").value + " ×");
+        clearResult();
+      }
+    }
+    function divide() {
+      if (document.getElementById("result").value == "") {
+        if (document.getElementById("holder").value != "") {
+          var s = document.getElementById("holder").value.replace(/.$/, "÷");
+          setHolder(s);
+        }
+      }
+      if (document.getElementById("holder").value == "") {
+        setHolder(document.getElementById("result").value + " ÷");
+        clearResult();
+      }
+    }
+    function equal() {
+      var opr = document.getElementById("holder").value.slice(-1);
+
+      switch (opr) {
+        case "+":
+          var a = document.getElementById("holder").value.slice(0, -2);
+          var b = document.getElementById("result").value;
+          var c = +a + +b;
+          clearResult();
+          setHolder(a + " + " + b + " =");
+          setResult(c);
+          break;
+        case "-":
+          var a = document.getElementById("holder").value.slice(0, -2);
+          var b = document.getElementById("result").value;
+          var c = +a - +b;
+          clearResult();
+          setHolder(a + " - " + b + " =");
+          setResult(c);
+          break;
+        case "×":
+          var a = document.getElementById("holder").value.slice(0, -2);
+          var b = document.getElementById("result").value;
+          var c = +a * +b;
+          clearResult();
+          setHolder(a + " × " + b + " =");
+          setResult(c);
+          break;
+        case "÷":
+          var a = document.getElementById("holder").value.slice(0, -2);
+          var b = document.getElementById("result").value;
+          var c = +a / +b;
+          clearResult();
+          setHolder(a + " ÷ " + b + " =");
+          setResult(c);
+          break;
+      }
+    }
+  </script>
+
+  <body>
+    <div class="calculator-body flex-column glass">
+      <input type="text" value="" id="holder" maxlength="22" />
+      <input type="text" value="" id="result" maxlength="18" />
+      <div class="grid-contaier flex-row">
+        <div class="flex-column item1">
+          <div class="flex-row">
+            <input type="button" onclick="setResult(value)" value="7" />
+            <input type="button" onclick="setResult(value)" value="8" />
+            <input type="button" onclick="setResult(value)" value="9" />
+            <input type="button" onclick="divide()" value="÷" />
+          </div>
+          <div class="flex-row">
+            <input type="button" onclick="setResult(value)" value="4" />
+            <input type="button" onclick="setResult(value)" value="5" />
+            <input type="button" onclick="setResult(value)" value="6" />
+            <input type="button" onclick="multiply()" value="×" />
+          </div>
+          <div class="flex-row">
+            <input type="button" onclick="setResult(value)" value="1" />
+            <input type="button" onclick="setResult(value)" value="2" />
+            <input type="button" onclick="setResult(value)" value="3" />
+            <input type="button" onclick="sub()" value="-" />
+          </div>
+          <div class="flex-row">
+            <input type="button" onclick="setResult(value)" value="." />
+            <input type="button" onclick="setResult(value)" value="0" />
+            <input type="button" onclick="clearAll()" value="C" />
+            <input type="button" onclick="add()" value="+" />
+          </div>
+        </div>
+        <div class="flex-column item2">
+          <input
+            type="button"
+            onclick="equal()"
+            value="="
+            style="height: 40vh"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

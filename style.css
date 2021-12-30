@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  margin: 0;
+  background: #485563;
+  background: -webkit-linear-gradient(to right, #29323c, #485563) !important;
+  background: linear-gradient(to right, #29323c, #485563) !important;
+}
+#result {
+  font-size: 4vh;
+  color: white;
+  height: 13vh;
+  width: 100%;
+  padding-inline-start: 4vh;
+  padding-inline-end: 4vh;
+  padding-bottom: 2vh;
+  text-align: right;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+#holder {
+  font-size: 2.5vh;
+  color: white;
+  height: 5vh;
+  width: 100%;
+  padding-inline-start: 4vh;
+  padding-inline-end: 4vh;
+  text-align: right;
+  padding-top: 3vh;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.grid-contaier.flex-row {
+  height: 44vh;
+}
+.grid-container .item1 {
+  flex: 75%;
+}
+.grid-container .item2 {
+  flex: 25%;
+}
+.grid-contaier.flex-row input {
+  font-size: 4vh;
+  color: white;
+  height: 10vh;
+  width: 8vh;
+  border: hidden;
+  border-radius: 2vh;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  transition: 0.25s;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-contaier.flex-row input:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0.25s;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.glass {
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+  border-radius: 2vh;
+  background-color: rgba(255, 255, 255, 0.021);
+  backdrop-filter: blur(045px);
+}
+.calculator-body {
+  height: 60vh;
+  width: 43vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
