@@ -1,1 +1,1 @@
-# simple-calculator
+# responsive simple calculator
